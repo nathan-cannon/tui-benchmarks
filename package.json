@@ -1,0 +1,21 @@
+{
+  "name": "tui-benchmarks",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "bench": "npx tsx bench/run.ts",
+    "postinstall": "node scripts/patch-cellstate.js"
+  },
+  "dependencies": {
+    "cellstate": "^0.1.1",
+    "ink": "^6.8.0",
+    "react": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
