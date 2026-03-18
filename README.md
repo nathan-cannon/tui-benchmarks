@@ -64,11 +64,11 @@ Bytes written to stdout per frame:
 
 ## What this shows
 
-CS Pipeline stays within 1.0-1.5x of raw at every tree size. React's reconciler adds roughly 0.1-0.5ms of overhead. At 250 messages (33KB of content), the full pipeline takes 2.54ms for a keypress. That's not "orders of magnitude too slow." It's a rounding error inside a 16ms frame budget.
+CS Pipeline stays within 1.0-1.6x of raw at every tree size. React's reconciler adds roughly 0.1-0.5ms of overhead. At 250 messages (33KB of content), the full pipeline takes 2.54ms for a keypress. That's not "orders of magnitude too slow." It's a rounding error inside a 16ms frame budget.
 
 The bytes-per-frame tables explain why Ink is slow. For a single cell update, CellState and Raw both write 34 bytes regardless of tree size. Ink writes 83KB at 500 messages for the same 1-character change. The bottleneck is the output pipeline, not React.
 
-The streaming scenario is harder. CellState e2e runs at 17-25ms because content growth triggers scrollback management (pre-painting rows before pushing them into the terminal scrollback buffer). Even so, CellState's pipeline computation stays under 6ms and it writes 315-387 bytes per frame compared to Ink's 42-84KB.
+The streaming scenario is harder. CellState e2e runs at 17-25ms because content growth triggers scrollback management (pre-painting rows before pushing them into the terminal scrollback buffer). Even so, CellState's pipeline computation stays under 6ms and it writes 41-370 bytes per frame compared to Ink's 42-84KB.
 
 ## Test UI
 
