@@ -1,3 +1,6 @@
+> **OUTDATED**, updating for CellState v0.2.1 soon
+
+
 # tui-benchmarks
 
 Frame latency benchmarks for terminal UI frameworks.
